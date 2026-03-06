@@ -132,18 +132,7 @@ function Navbar() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <BrandLogo size={36} />
-          <span
-            style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 700,
-              fontSize: 20,
-              color: DARK,
-              letterSpacing: "-0.5px",
-            }}
-          >
-            Easy Clones
-          </span>
+          <img src="/images/logos/Logo EasyTemplates-1.png" alt="Easy Clones" style={{ height: 36 }} />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {navLinks.map((l) => (
@@ -667,29 +656,25 @@ function Results() {
       quote: "Rafael and his team built our AI clone system that powers our entire content operation. The quality is indistinguishable from real footage and the turnaround is unbelievable.",
       name: "Antonio Monteiro",
       role: "CEO & Founder, ClickToClose",
-      initials: "AM",
-      /* image: "/images/testimonials/antonio.jpg" */
+      image: "/images/testimonials/antoniomonteiro.png",
     },
     {
       quote: "We needed high-volume content across multiple channels without slowing down our marketing. Easy Clones delivered exactly that — fast, professional, and scalable.",
       name: "Adam Godrosi",
       role: "CEO & Founder, Gymnastics Method",
-      initials: "AG",
-      /* image: "/images/testimonials/adam.jpg" */
+      image: "/images/testimonials/adamgodrosi.png",
     },
     {
       quote: "At our scale, content production was one of our biggest bottlenecks. Easy Clones cut our content costs dramatically while increasing our output tenfold.",
       name: "Nick Daniels",
       role: "CEO, VShred",
-      initials: "ND",
-      /* image: "/images/testimonials/nick.jpg" */
+      image: "/images/testimonials/nick daniel vshred.jpeg",
     },
     {
       quote: "As someone who needs to be everywhere at once — podcasts, social, ads — having a clone that looks and sounds like me has been a complete game-changer for my brand.",
       name: "Mark Moss",
       role: "CEO & Founder, Market Disruptors",
-      initials: "MM",
-      /* image: "/images/testimonials/mark.jpg" */
+      image: "/images/testimonials/Mark Moss profile image.jpeg",
     },
   ];
   return (
@@ -724,16 +709,7 @@ function Results() {
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                {/* To use real photos, uncomment the image field above and replace this div with:
-                    <img src={t.image} alt={t.name} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
-                */}
-                <div style={{
-                  width: 40, height: 40, borderRadius: "50%", background: BRAND,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 700, color: "white",
-                }}>
-                  {t.initials}
-                </div>
+                <img src={t.image} alt={t.name} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
                 <div>
                   <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, fontWeight: 700, color: DARK }}>{t.name}</div>
                   <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: GRAY }}>{t.role}</div>
@@ -916,9 +892,6 @@ function Footer() {
         borderBottom: "1px solid #1A1A1A",
         textAlign: "center",
       }}>
-        <div style={{ marginBottom: 24 }}>
-          <BrandLogo size={40} />
-        </div>
         <p style={{
           fontFamily: "'DM Sans', sans-serif",
           fontSize: 12,
@@ -949,13 +922,12 @@ function Footer() {
         gap: 16,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <BrandLogo size={24} />
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 14, color: "white" }}>Easy Clones</span>
+          <img src="/images/logos/Logo EasyTemplates-1.png" alt="Easy Clones" style={{ height: 24 }} />
         </div>
         <div style={{ display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}>
-          {["Instagram", "TikTok", "YouTube"].map((s) => (
-            <a key={s} href="#" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>{s}</a>
-          ))}
+          <a href="https://www.instagram.com/easyclones.ai" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>Instagram</a>
+          <a href="https://www.tiktok.com/@easyclones.ai" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>TikTok</a>
+          <a href="https://www.youtube.com/channel/UCG3Vvh_zxOx7wIXzKJjnyhA" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>YouTube</a>
           <span style={{ color: "#333", fontSize: 13 }}>|</span>
           <Link href="/terms" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>
             Terms &amp; Conditions
