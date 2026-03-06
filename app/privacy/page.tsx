@@ -122,7 +122,7 @@ export default function PrivacyPolicy() {
             <br /><br />
             <strong>Biometric Data Revocation:</strong> Revoke consent for use of your biometric data at any time.
             <br /><br />
-            To exercise any of these rights, please contact us at privacy@easyclones.com.
+            To exercise any of these rights, please contact us at privacy@easyclones.pro.
           </Section>
 
           <Section title="8. Data Security">
@@ -149,8 +149,8 @@ export default function PrivacyPolicy() {
             If you have questions about this Privacy Policy or wish to exercise your rights, please contact us at:
             <br /><br />
             Easy Clones<br />
-            Email: privacy@easyclones.com<br />
-            Website: easyclones.com
+            Email: privacy@easyclones.pro<br />
+            Website: easyclones.pro
           </Section>
 
         </div>
