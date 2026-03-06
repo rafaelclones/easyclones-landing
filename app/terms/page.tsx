@@ -138,7 +138,7 @@ export default function TermsAndConditions() {
           </Section>
 
           <Section title="11. DMCA and Takedown Procedures">
-            Easy Clones respects intellectual property rights. If you believe that any content created using our services infringes on your rights, please contact us at legal@easyclones.com with a detailed description of the alleged infringement. We will investigate and take appropriate action, which may include removal of the content and termination of the offending Client&apos;s account.
+            Easy Clones respects intellectual property rights. If you believe that any content created using our services infringes on your rights, please contact us at legal@easyclones.pro with a detailed description of the alleged infringement. We will investigate and take appropriate action, which may include removal of the content and termination of the offending Client&apos;s account.
           </Section>
 
           <Section title="12. Governing Law and Dispute Resolution">
@@ -161,8 +161,8 @@ export default function TermsAndConditions() {
             If you have questions about these Terms and Conditions, please contact us at:
             <br /><br />
             Easy Clones<br />
-            Email: legal@easyclones.com<br />
-            Website: easyclones.com
+            Email: legal@easyclones.pro<br />
+            Website: easyclones.pro
           </Section>
 
         </div>
