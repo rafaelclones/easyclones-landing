@@ -132,7 +132,7 @@ function Navbar() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/images/logos/Logo EasyTemplates-1.png" alt="Easy Clones" style={{ height: 36 }} />
+          <img src="/images/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 36 }} />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {navLinks.map((l) => (
@@ -668,13 +668,13 @@ function Results() {
       quote: "At our scale, content production was one of our biggest bottlenecks. Easy Clones cut our content costs dramatically while increasing our output tenfold.",
       name: "Nick Daniels",
       role: "CEO, VShred",
-      image: "/images/testimonials/nick daniel vshred.jpeg",
+      image: "/images/testimonials/nick%20daniel%20vshred.jpeg",
     },
     {
       quote: "As someone who needs to be everywhere at once — podcasts, social, ads — having a clone that looks and sounds like me has been a complete game-changer for my brand.",
       name: "Mark Moss",
       role: "CEO & Founder, Market Disruptors",
-      image: "/images/testimonials/Mark Moss profile image.jpeg",
+      image: "/images/testimonials/Mark%20Moss%20profile%20image.jpeg",
     },
   ];
   return (
@@ -922,7 +922,7 @@ function Footer() {
         gap: 16,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/images/logos/Logo EasyTemplates-1.png" alt="Easy Clones" style={{ height: 24 }} />
+          <img src="/images/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 24 }} />
         </div>
         <div style={{ display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}>
           <a href="https://www.instagram.com/easyclones.ai" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>Instagram</a>
