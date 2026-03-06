@@ -132,7 +132,7 @@ function Navbar() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 36 }} />
+          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 36, borderRadius: "6px" }} />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {navLinks.map((l) => (
@@ -922,7 +922,7 @@ function Footer() {
         gap: 16,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 24 }} />
+          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 24, borderRadius: "6px" }} />
         </div>
         <div style={{ display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}>
           <a href="https://www.instagram.com/easyclones.ai" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>Instagram</a>
