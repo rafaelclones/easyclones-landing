@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Script from "next/script";
 
+
 const BRAND = "#FF4201";
 const BRAND_LIGHT = "#FFF4F0";
 const BRAND_DARK = "#E63A00";
@@ -926,9 +927,36 @@ function FinalCTA() {
           <div style={{
             background: LIGHT_GRAY, borderRadius: 24, border: "1px solid #E5E7EB",
             padding: 8, minHeight: 600, boxShadow: "0 12px 48px rgba(0,0,0,0.06)",
+            overflow: "hidden",
           }}>
             {/* ── JOTFORM EMBED ── */}
-            <Script src="https://form.jotform.com/jsform/260647708574063" strategy="lazyOnload" />
+            <iframe
+              id="JotFormIFrame-260647708574063"
+              title="Easy Clones Discovery Call"
+              onLoad={() => window.parent.scrollTo(0, 0)}
+              allowTransparency={true}
+              allow="geolocation; microphone; camera; fullscreen; payment"
+              src="https://form.jotform.com/260647708574063"
+              frameBorder={0}
+              style={{
+                minWidth: "100%",
+                maxWidth: "100%",
+                height: 539,
+                border: "none",
+                borderRadius: 16,
+              }}
+              scrolling="no"
+            />
+            <Script
+              src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"
+              strategy="afterInteractive"
+              onLoad={() => {
+                (window as any).jotformEmbedHandler(
+                  "iframe[id='JotFormIFrame-260647708574063']",
+                  "https://form.jotform.com/"
+                );
+              }}
+            />
           </div>
         </FadeIn>
       </div>
