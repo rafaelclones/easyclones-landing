@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Script from "next/script";
 
 const BRAND = "#FF4201";
 const BRAND_LIGHT = "#FFF4F0";
@@ -9,35 +10,6 @@ const BRAND_DARK = "#E63A00";
 const DARK = "#0A0A0A";
 const GRAY = "#6B7280";
 const LIGHT_GRAY = "#F9FAFB";
-
-/* ─────────────────────────────────────────────
-   IMAGE PATHS — Update these when you add images
-   to the /public/images/ folder.
-   
-   Usage in Next.js: <img src="/images/hero-bg.jpg" />
-   
-   Recommended folder structure:
-   /public/images/
-     hero-bg.jpg        ← Hero background or visual
-     vsl-thumbnail.jpg  ← Video thumbnail
-     testimonials/
-       antonio.jpg      ← Client headshots
-       adam.jpg
-       nick.jpg
-       mark.jpg
-     who-its-for/
-       creators.jpg
-       ecommerce.jpg
-       coaches.jpg
-       agencies.jpg
-     logos/
-       logo-white.png   ← White logo variation
-       logo-dark.png    ← Dark logo variation
-       favicon.png      ← Favicon (also put in /app)
-     misc/
-       clone-demo.gif   ← Demo animations
-       before-after.jpg ← Comparison shots
-   ──────────────────────────────────────────── */
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -482,7 +454,6 @@ function VSL() {
             cursor: "pointer",
           }}
         >
-          {/* To add a video thumbnail: <img src="/images/vsl-thumbnail.jpg" alt="Watch video" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> */}
           <div
             style={{
               position: "absolute",
@@ -555,10 +526,10 @@ function VSL() {
 
 function Problem() {
   const cards = [
-    { title: "Videographers & Crew", cost: "$2K\u20136K/mo", icon: "\uD83C\uDFA5" },
-    { title: "Models & Talent", cost: "$800\u20133K/mo", icon: "\uD83D\uDC64" },
-    { title: "Studios & Travel", cost: "$1.5K\u20135K/mo", icon: "\u2708\uFE0F" },
-    { title: "Editing & Post", cost: "$500\u20132K/mo", icon: "\u2702\uFE0F" },
+    { title: "Videographers & Crew", cost: "$2K–6K/mo", icon: "🎥" },
+    { title: "Models & Talent", cost: "$800–3K/mo", icon: "👤" },
+    { title: "Studios & Travel", cost: "$1.5K–5K/mo", icon: "✈️" },
+    { title: "Editing & Post", cost: "$500–2K/mo", icon: "✂️" },
   ];
   return (
     <section
@@ -802,10 +773,10 @@ function Results() {
 
 function WhoItsFor() {
   const segments = [
-    { icon: "\uD83C\uDFAC", title: "Content Creators", desc: "Scale content 10x without filming daily" },
-    { icon: "\uD83D\uDED2", title: "E-Commerce Sellers", desc: "AI clone presents products 24/7 in multiple languages" },
-    { icon: "\uD83C\uDF93", title: "Coaches & Brands", desc: "Clone delivers ads, testimonials, and course previews" },
-    { icon: "\uD83C\uDFE2", title: "Agencies", desc: "White-label clone creation for your own clients" },
+    { icon: "🎬", title: "Content Creators", desc: "Scale content 10x without filming daily" },
+    { icon: "🛒", title: "E-Commerce Sellers", desc: "AI clone presents products 24/7 in multiple languages" },
+    { icon: "🎓", title: "Coaches & Brands", desc: "Clone delivers ads, testimonials, and course previews" },
+    { icon: "🏢", title: "Agencies", desc: "White-label clone creation for your own clients" },
   ];
   return (
     <section style={{ padding: "100px max(24px, calc((100% - 1100px)/2))", background: "white" }}>
@@ -842,13 +813,13 @@ function WhoItsFor() {
 function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
   const faqs: [string, string][] = [
-    ["What exactly is an AI clone?", "It\u2019s a digital version of a person \u2014 their face, voice, and mannerisms \u2014 powered by AI. It can speak, present products, and create content autonomously."],
-    ["Do I need to be on camera?", "We\u2019ll need some reference footage or photos to build the clone, but after that, your clone does the work \u2014 you don\u2019t need to film again."],
-    ["How long does it take?", "Standard delivery is 5\u20137 business days. Rush delivery (48 hours) is available for an additional fee."],
+    ["What exactly is an AI clone?", "It's a digital version of a person — their face, voice, and mannerisms — powered by AI. It can speak, present products, and create content autonomously."],
+    ["Do I need to be on camera?", "We'll need some reference footage or photos to build the clone, but after that, your clone does the work — you don't need to film again."],
+    ["How long does it take?", "Standard delivery is 5–7 business days. Rush delivery (48 hours) is available for an additional fee."],
     ["Can my clone speak other languages?", "Yes! Multi-language clones are available. Your clone can present in English, Spanish, Portuguese, French, Arabic, and more."],
     ["Is this legal?", "Absolutely. We only create clones with the full written consent of the person being cloned. Our terms of service ensure ethical use and comply with applicable state and federal laws."],
-    ["What if I\u2019m not happy with the result?", "Every package includes revision rounds. We work with you until you\u2019re satisfied."],
-    ["How is this different from HeyGen or Synthesia?", "Those are DIY tools \u2014 you still have to figure everything out yourself. Easy Clones is a done-for-you service. We handle all the technical work and deliver production-ready content."],
+    ["What if I'm not happy with the result?", "Every package includes revision rounds. We work with you until you're satisfied."],
+    ["How is this different from HeyGen or Synthesia?", "Those are DIY tools — you still have to figure everything out yourself. Easy Clones is a done-for-you service. We handle all the technical work and deliver production-ready content."],
   ];
   return (
     <section id="faq" style={{ padding: "100px max(24px, calc((100% - 750px)/2))", background: LIGHT_GRAY }}>
@@ -934,9 +905,9 @@ function FinalCTA() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {[
-                ["\u2713", "100% free \u2014 no credit card, no commitment"],
-                ["\u2713", "Personal review by our team within 24 hours"],
-                ["\u2713", "If approved, your clone is built and delivered in days"],
+                ["✓", "100% free — no credit card, no commitment"],
+                ["✓", "Personal review by our team within 24 hours"],
+                ["✓", "If approved, your clone is built and delivered in days"],
               ].map(([icon, text], i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
                   <span style={{ color: BRAND, fontSize: 18, fontWeight: 700 }}>{icon}</span>
@@ -950,30 +921,14 @@ function FinalCTA() {
           </div>
         </FadeIn>
 
-        {/* Right: Form */}
+        {/* Right: Jotform */}
         <FadeIn delay={0.15}>
           <div style={{
             background: LIGHT_GRAY, borderRadius: 24, border: "1px solid #E5E7EB",
             padding: 8, minHeight: 600, boxShadow: "0 12px 48px rgba(0,0,0,0.06)",
           }}>
-            {/* ── JOTFORM EMBED GOES HERE ── */}
-            {/* <iframe src="https://form.jotform.com/YOUR_FORM_ID" style={{ width: "100%", height: 600, border: "none", borderRadius: 20 }} /> */}
-            <div style={{
-              width: "100%", height: 580, borderRadius: 20, background: "white",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: 16, border: "2px dashed #E5E7EB",
-            }}>
-              <BrandLogo size={48} />
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, fontWeight: 700, color: DARK, textAlign: "center" }}>
-                Application Form
-              </div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: GRAY, textAlign: "center", maxWidth: 280, lineHeight: 1.6 }}>
-                Embed your Jotform here by replacing the placeholder in the code with your form&apos;s iframe URL.
-              </div>
-              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, color: "#9CA3AF", background: "#F3F4F6", padding: "8px 16px", borderRadius: 8, marginTop: 8 }}>
-                {'<iframe src="jotform.com/..." />'}
-              </div>
-            </div>
+            {/* ── JOTFORM EMBED ── */}
+            <Script src="https://form.jotform.com/jsform/260647708574063" strategy="lazyOnload" />
           </div>
         </FadeIn>
       </div>
@@ -983,9 +938,9 @@ function FinalCTA() {
         <FadeIn>
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {[
-              ["\u2713", "100% free \u2014 no credit card, no commitment"],
-              ["\u2713", "Personal review by our team within 24 hours"],
-              ["\u2713", "If approved, your clone is built and delivered in days"],
+              ["✓", "100% free — no credit card, no commitment"],
+              ["✓", "Personal review by our team within 24 hours"],
+              ["✓", "If approved, your clone is built and delivered in days"],
             ].map(([icon, text], i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <span style={{ color: BRAND, fontSize: 18, fontWeight: 700 }}>{icon}</span>
@@ -1002,11 +957,9 @@ function FinalCTA() {
   );
 }
 
-/* ── COMPLIANCE FOOTER (VShred-style) ── */
 function Footer() {
   return (
     <footer style={{ background: "#050505" }}>
-      {/* Compliance / Disclaimer Section */}
       <div style={{
         padding: "56px max(24px, calc((100% - 900px)/2)) 40px",
         borderBottom: "1px solid #1A1A1A",
@@ -1032,7 +985,6 @@ function Footer() {
         </p>
       </div>
 
-      {/* Bottom bar with links */}
       <div style={{
         padding: "20px max(24px, calc((100% - 1100px)/2))",
         display: "flex",
