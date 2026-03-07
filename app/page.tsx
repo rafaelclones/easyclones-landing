@@ -100,6 +100,7 @@ const navLinks = ["How It Works", "Results", "FAQ"];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", h);
@@ -113,9 +114,9 @@ function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        background: scrolled ? "rgba(255,255,255,0.95)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid #eee" : "none",
+        background: scrolled || menuOpen ? "rgba(255,255,255,0.98)" : "transparent",
+        backdropFilter: scrolled || menuOpen ? "blur(12px)" : "none",
+        borderBottom: scrolled || menuOpen ? "1px solid #eee" : "none",
         transition: "all 0.3s ease",
         padding: "0 max(24px, calc((100% - 1200px)/2))",
       }}
@@ -125,16 +126,17 @@ function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: 72,
+          height: 64,
           maxWidth: 1200,
           margin: "0 auto",
           width: "100%",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 36, borderRadius: "6px" }} />
+          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 32 }} />
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+        {/* Desktop nav */}
+        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {navLinks.map((l) => (
             <a
               key={l}
@@ -172,7 +174,82 @@ function Navbar() {
             Get Your FREE Clone
           </a>
         </div>
+        {/* Mobile hamburger */}
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            display: "none",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 8,
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={DARK} strokeWidth="2" strokeLinecap="round">
+            {menuOpen ? (
+              <>
+                <line x1="6" y1="6" x2="18" y2="18" />
+                <line x1="6" y1="18" x2="18" y2="6" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="7" x2="21" y2="7" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="17" x2="21" y2="17" />
+              </>
+            )}
+          </svg>
+        </button>
       </div>
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div
+          className="mobile-dropdown"
+          style={{
+            display: "none",
+            flexDirection: "column",
+            gap: 4,
+            padding: "8px 0 20px",
+          }}
+        >
+          {navLinks.map((l) => (
+            <a
+              key={l}
+              href={`#${l.toLowerCase().replace(/ /g, "-")}`}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: 16,
+                fontWeight: 500,
+                color: DARK,
+                textDecoration: "none",
+                padding: "12px 0",
+              }}
+            >
+              {l}
+            </a>
+          ))}
+          <a
+            href="#book"
+            onClick={() => setMenuOpen(false)}
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 15,
+              fontWeight: 600,
+              background: BRAND,
+              color: "white",
+              padding: "14px 24px",
+              borderRadius: 50,
+              textDecoration: "none",
+              textAlign: "center",
+              marginTop: 8,
+            }}
+          >
+            Get Your FREE Clone
+          </a>
+        </div>
+      )}
     </nav>
   );
 }
@@ -819,9 +896,29 @@ function FAQ() {
 function FinalCTA() {
   return (
     <section id="book" style={{ padding: "100px max(24px, calc((100% - 900px)/2))", background: "white" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+      {/* Mobile: headline + sub on top */}
+      <div className="cta-mobile-header" style={{ display: "none", textAlign: "center", marginBottom: 32 }}>
         <FadeIn>
-          <div>
+          <div style={{ display: "inline-block", background: BRAND_LIGHT, borderRadius: 50, padding: "6px 18px", marginBottom: 20 }}>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 600, color: BRAND, letterSpacing: "0.5px" }}>LIMITED SPOTS</span>
+          </div>
+          <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "clamp(28px, 5vw, 44px)", color: DARK, fontWeight: 400, margin: "0 0 16px", letterSpacing: "-1px", lineHeight: 1.15 }}>
+            Book a Discovery Call and See if Your Company is a Fit to Get a{" "}
+            <span style={{ color: BRAND, fontStyle: "italic" }}>FREE</span> Clone.
+          </h2>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: GRAY, lineHeight: 1.7, margin: "0 0 0" }}>
+            Fill out the application below. Our team will personally review your submission
+            and determine if your company qualifies for a free test drive of our AI clone
+            technology. If you&apos;re a fit, we&apos;ll build your first clone at zero cost
+            — so you can see the results before you invest a single dollar.
+          </p>
+        </FadeIn>
+      </div>
+
+      <div className="cta-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+        {/* Left: Copy (hidden on mobile, shown on desktop) */}
+        <FadeIn>
+          <div className="cta-copy">
             <div style={{ display: "inline-block", background: BRAND_LIGHT, borderRadius: 50, padding: "6px 18px", marginBottom: 20 }}>
               <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 600, color: BRAND, letterSpacing: "0.5px" }}>LIMITED SPOTS</span>
             </div>
@@ -852,6 +949,8 @@ function FinalCTA() {
             </p>
           </div>
         </FadeIn>
+
+        {/* Right: Form */}
         <FadeIn delay={0.15}>
           <div style={{
             background: LIGHT_GRAY, borderRadius: 24, border: "1px solid #E5E7EB",
@@ -876,6 +975,27 @@ function FinalCTA() {
               </div>
             </div>
           </div>
+        </FadeIn>
+      </div>
+
+      {/* Mobile: bullets below form */}
+      <div className="cta-mobile-bullets" style={{ display: "none", marginTop: 32 }}>
+        <FadeIn>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {[
+              ["\u2713", "100% free \u2014 no credit card, no commitment"],
+              ["\u2713", "Personal review by our team within 24 hours"],
+              ["\u2713", "If approved, your clone is built and delivered in days"],
+            ].map(([icon, text], i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <span style={{ color: BRAND, fontSize: 18, fontWeight: 700 }}>{icon}</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "#374151" }}>{text}</span>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#9CA3AF", marginTop: 24, fontStyle: "italic", textAlign: "center" }}>
+            Easy to clone, easy to play.
+          </p>
         </FadeIn>
       </div>
     </section>
@@ -922,7 +1042,7 @@ function Footer() {
         gap: 16,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 24, borderRadius: "6px" }} />
+          <img src="/images%20/logos/Logo%20EasyTemplates-1.png" alt="Easy Clones" style={{ height: 24 }} />
         </div>
         <div style={{ display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}>
           <a href="https://www.instagram.com/easyclones.ai" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#6B7280", textDecoration: "none" }}>Instagram</a>
@@ -949,6 +1069,25 @@ export default function EasyClones() {
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { overflow-x: hidden; }
+
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .mobile-menu-btn { display: block !important; }
+          .mobile-dropdown { display: flex !important; }
+
+          .cta-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .cta-copy { display: none !important; }
+          .cta-mobile-header { display: block !important; }
+          .cta-mobile-bullets { display: block !important; }
+        }
+
+        @media (min-width: 769px) {
+          .mobile-menu-btn { display: none !important; }
+          .mobile-dropdown { display: none !important; }
+          .cta-mobile-header { display: none !important; }
+          .cta-mobile-bullets { display: none !important; }
+          .cta-copy { display: block !important; }
+        }
       `}</style>
       <Navbar />
       <Hero />
